@@ -1,0 +1,35 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+.body-text{
+  width: 100%;
+    background: transparent;
+    border: 2px solid #D7D6D4;
+    box-shadow: 2px 6px 2px #d4d4d4;
+    height: 147px;
+    overflow-y: scroll;
+}
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  width: 350px;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
