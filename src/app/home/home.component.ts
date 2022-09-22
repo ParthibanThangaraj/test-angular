@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+
+  property: string;
+  opration: string;
+  value: string;
+
+
 }
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {property: "", opration: "", value: "", },
+
+
 
 ];
 
@@ -19,7 +20,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['property',  'opration','value',];
   dataSource = ELEMENT_DATA;
   base64File: any;
   filename: any;
@@ -52,6 +53,12 @@ export class HomeComponent implements OnInit {
   "Authorization",
   ];
 
+  tablArray:string[]=[
+    "AppServers",
+  "AR",
+  "Archive",
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
@@ -70,5 +77,10 @@ export class HomeComponent implements OnInit {
       this.base64File = null;
       console.log('no file was selected...');
     }
+  }
+  someMethod(value: any, element: any) {
+    console.log("selected value", value);
+    console.log("selected element", element);
+    element.symbol = value;
   }
 }
