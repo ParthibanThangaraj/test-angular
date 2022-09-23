@@ -21,7 +21,8 @@ import { PanelComponent } from './panel/panel.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,12 @@
-
-
 <div class="container mt-5">
-  <h2 style="text-align:center">Head</h2>
+
+  <p>
+    <mat-toolbar>
+      <h1 style="text-align:center">Rule Model</h1>
+    </mat-toolbar>
+  </p>
+
+
   <mat-card>
     <form>
       <table>
@@ -55,141 +60,175 @@
         </tr>
       </table>
 
-      <p>
-        <mat-form-field appearance="outline">
-          <mat-label>Rule Id</mat-label>
-          <mat-select placeholder="Adaptor Id">
-            <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Rule Number 1
-              </mat-panel-title>
-
-            </mat-expansion-panel-header>
-            <table>
-              <tr>
-
-                <td>
-                  <mat-form-field appearance="outline">
-                    <mat-label>Name</mat-label>
-                    <input matInput>
-                  </mat-form-field>
-                </td>
-
-                <td>
-                  <mat-form-field appearance="outline">
-                    <mat-label>Object</mat-label>
-                    <input matInput>
-                  </mat-form-field>
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-                  <mat-checkbox class="example-margin">Check me!</mat-checkbox>
-                </td>
-              </tr>
-            </table>
-            <br>
-            <div>
-              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-                <!--- Note that these columns can be defined in any order.
-                      The actual rendered columns are set as a property on the row definition" -->
-
-                <!-- Position Column -->
-                <!-- <ng-container matColumnDef="property">
-                  <th mat-header-cell *matHeaderCellDef>Property</th>
-                  <td mat-cell *matCellDef="let element"> {{element.property}} </td>
-                </ng-container> -->
-
-                <ng-container matColumnDef="property">
-                  <th mat-header-cell *matHeaderCellDef>Property</th>
-                  <td mat-cell *matCellDef="let element">
-                    <mat-form-field appearance="outline">
-                      <mat-label>Choose an option</mat-label>
-                      <mat-select (selectionChange)="someMethod($event.value,element)">
-                        <mat-option *ngFor="let tablDropDown of tablArray" [value]="tablDropDown">
-                          {{tablDropDown}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </td>
-                </ng-container>&nbsp;
-
-
-                <ng-container matColumnDef="opration">
-                  <th mat-header-cell *matHeaderCellDef>Operation</th>
-                  <td mat-cell *matCellDef="let element">
-                    <mat-form-field appearance="outline">
-                      <mat-label>Choose an option</mat-label>
-                      <mat-select (selectionChange)="someMethod($event.value,element)">
-                        <mat-option *ngFor="let tablDropDown of tablArray" [value]="tablDropDown">
-                          {{tablDropDown}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </td>
-                </ng-container>&nbsp;
-
-                <!-- Name Column
-                <ng-container matColumnDef="opration">
-                  <th mat-header-cell *matHeaderCellDef> Operation </th>
-                  <td mat-cell *matCellDef="let element"> {{element.opration}} </td>
-                </ng-container> -->
-
-                <!-- Weight Column -->
-                <!-- <ng-container matColumnDef="value">
-                  <th mat-header-cell *matHeaderCellDef> Weight </th>
-                  <td mat-cell *matCellDef="let element"> {{element.value}} </td>
-                </ng-container> -->
-
-
-                                <!-- Symbol Column -->
-  <ng-container matColumnDef="value">
-    <th mat-header-cell *matHeaderCellDef>Value</th>
-    <td mat-cell *matCellDef="let element">
       <mat-form-field appearance="outline">
-        <mat-label>Choose an option</mat-label>
-        <mat-select (selectionChange)="someMethod($event.value,element)">
-          <mat-option *ngFor="let tablDropDown of tablArray" [value]="tablDropDown">
-            {{tablDropDown}}
-          </mat-option>
+        <mat-label>Rule Id</mat-label>
+        <mat-select placeholder="Adaptor Id">
+          <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
         </mat-select>
       </mat-form-field>
-    </td>
-  </ng-container>&nbsp;
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
-            </div>
+      <div class="example-button-container">
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" matTooltip="Add Accordion">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+      </div>
+      <br>
 
 
 
-            <ng-template matExpansionPanelContent>
-            </ng-template>
-          </mat-expansion-panel>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Rule Number 1
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+          <table>
+            <tr>
+
+              <td>
+                <mat-form-field appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </td>
+
+              <td>
+                <mat-form-field appearance="outline">
+                  <mat-label>Object</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </td>
+
+            </tr>
+            <tr>
+              <td>
+                <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+              </td>
+            </tr>
+          </table>
           <br>
-        </mat-accordion>
-
-        <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Rule Number 2
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-      </mat-expansion-panel>
+          <div>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 
-        </mat-accordion>
-      </p>
+
+
+              <tr>
+                <td>
+                  <ng-container matColumnDef="property">
+                <th mat-header-cell *matHeaderCellDef>Property</th>
+                <td mat-cell *matCellDef="let element">
+                  <mat-form-field appearance="standard" style="width:70%;">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select (selectionChange)="someMethod($event.value,element)">
+                      <mat-option *ngFor="let tablDropDown of tablArray" [value]="tablDropDown">
+                        {{tablDropDown}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+                </ng-container>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+
+                  <ng-container matColumnDef="opration">
+                <th mat-header-cell *matHeaderCellDef>Operation</th>
+                <td mat-cell *matCellDef="let element">
+                  <mat-form-field appearance="standard" style="width:70%;">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select (selectionChange)="someMethod($event.value,element)">
+                      <mat-option *ngFor="let Oprator of OpratorArray" [value]="Oprator">
+                        {{Oprator}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+                </ng-container>
+
+                </td>
+              </tr>
+
+
+
+
+              <tr>
+                <td>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef>Value</th>
+                <td mat-cell *matCellDef="let element">
+                  <mat-form-field appearance="standard" style="width:70%;">
+                    <mat-label>Choose an option</mat-label>
+                    <mat-select (selectionChange)="someMethod($event.value,element)">
+                      <mat-option *ngFor="let tablDropDown of tablArray" [value]="tablDropDown">
+                        {{tablDropDown}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+                </ng-container>
+                </td>
+              </tr>
+
+
+
+
+
+
+
+
+
+              <tr>
+                <td>
+
+                  <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-icon-button matTooltip="Click to Add" class="iconbutton" color="primary">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+                  <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                  </button>
+                </td>
+                </ng-container>
+
+                </td>
+              </tr>
+
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+
+
+
+          <ng-template matExpansionPanelContent>
+          </ng-template>
+        </mat-expansion-panel>
+        <br>
+      </mat-accordion>
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Rule Number 2
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+
+      </mat-accordion>
+
 
     </form>
   </mat-card>

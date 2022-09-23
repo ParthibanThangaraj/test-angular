@@ -4,11 +4,11 @@ export interface PeriodicElement {
   property: string;
   opration: string;
   value: string;
-
+  action:string;
 
 }
 const ELEMENT_DATA: PeriodicElement[] = [
-  {property: "", opration: "", value: "", },
+  {property: "", opration: "", value: "", action:"" },
 
 
 
@@ -20,10 +20,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['property',  'opration','value',];
+  displayedColumns: string[] = ['property',  'opration','value','action' ];
   dataSource = ELEMENT_DATA;
   base64File: any;
   filename: any;
+  step=0;
   states: string[] = [
     "",
     "1",
@@ -59,6 +60,12 @@ export class HomeComponent implements OnInit {
   "Archive",
   ]
 
+  OpratorArray:string[]=[
+
+    "NOT_EQUAL_TO",
+    "EQUAL_TO",
+    "CONTAINS","GREATER_THAN","LESS_THAN","GREATER_THAN_OR_EQUAL_TO","LESS_THAN_OR_EQUAL_TO"
+  ]
   constructor() { }
 
   ngOnInit(): void {
@@ -82,5 +89,12 @@ export class HomeComponent implements OnInit {
     console.log("selected value", value);
     console.log("selected element", element);
     element.symbol = value;
+  }
+
+
+
+
+  setStep(index: number) {
+    this.step = index;
   }
 }
